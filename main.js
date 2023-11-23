@@ -187,14 +187,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
           var xCoords = [];
           var yCoords = [];
+          var i;
 
-          for(let i=0; i<optimalPath.length-1; i++){
+          for(i = 0; i<optimalPath.length-1; i++){
 
             xCoords.push(points[optimalPath[i]][0]-25);
             yCoords.push(points[optimalPath[i]][1]);
             addPointsAtFixedDistance(points[optimalPath[i]][0]-25, points[optimalPath[i]][1], points[optimalPath[i]][0]-25, points[optimalPath[i+1]][1],25);
           }
 
+          xCoords.push(points[optimalPath[i]][0]-25);
+          yCoords.push(points[optimalPath[i]][1]);
           var srcImg = new Image();
           srcImg.onload = function() {
             ctx.drawImage(srcImg, xCoords[0]-20, yCoords[0]-25, 50, 50);
